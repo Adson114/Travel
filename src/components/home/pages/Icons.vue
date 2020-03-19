@@ -1,6 +1,6 @@
 <template>
   <div class="icons">
-    <swiper>
+    <swiper :options="swiperOption">
       <swiper-slide v-for="(page ,index) of pages" :key="index">
         <div class="icon" v-for="item in page" :key="item.id">
           <div class="icon-img">
@@ -17,52 +17,21 @@
 <script>
 export default {
   name: 'HomeIcons',
+  props: {
+    list: Array
+  },
   data () {
     return {
-      iconList: [{
-        id: '001',
-        imgUrl: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1584589814636&di=9c8000e729c3f4f6c667f8ac6d93359e&imgtype=0&src=http%3A%2F%2Fbpic.588ku.com%2Felement_origin_min_pic%2F01%2F34%2F24%2F46573ba46374d72.jpg',
-        desc: '景点门票'
-      }, {
-        id: '002',
-        imgUrl: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1584591162408&di=a7eb78c8babfe30a361158754d7d1191&imgtype=0&src=http%3A%2F%2Fpic.51yuansu.com%2Fpic2%2Fcover%2F00%2F46%2F28%2F58156e7d6230a_610.jpg',
-        desc: '滑雪季节'
-      }, {
-        id: '003',
-        imgUrl: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1584591244306&di=e00d83ed724940eb7810af6c7883e3c0&imgtype=0&src=http%3A%2F%2Fimg.jpshopguide.com%2FS2700%2Fupload%2F2017022704236_1.jpg',
-        desc: '泡温泉'
-      }, {
-        id: '004',
-        imgUrl: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3650627178,2047022812&fm=15&gp=0.jpg',
-        desc: '动植物园'
-      }, {
-        id: '005',
-        imgUrl: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1584589814636&di=9c8000e729c3f4f6c667f8ac6d93359e&imgtype=0&src=http%3A%2F%2Fbpic.588ku.com%2Felement_origin_min_pic%2F01%2F34%2F24%2F46573ba46374d72.jpg',
-        desc: '景点门票'
-      }, {
-        id: '006',
-        imgUrl: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1584591162408&di=a7eb78c8babfe30a361158754d7d1191&imgtype=0&src=http%3A%2F%2Fpic.51yuansu.com%2Fpic2%2Fcover%2F00%2F46%2F28%2F58156e7d6230a_610.jpg',
-        desc: '滑雪季节'
-      }, {
-        id: '007',
-        imgUrl: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1584591244306&di=e00d83ed724940eb7810af6c7883e3c0&imgtype=0&src=http%3A%2F%2Fimg.jpshopguide.com%2FS2700%2Fupload%2F2017022704236_1.jpg',
-        desc: '泡温泉'
-      }, {
-        id: '008',
-        imgUrl: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3650627178,2047022812&fm=15&gp=0.jpg',
-        desc: '动植物园'
-      }, {
-        id: '009',
-        imgUrl: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3650627178,2047022812&fm=15&gp=0.jpg',
-        desc: '一日游'
-      }]
+      swiperOption: {
+        autoplay: false
+      }
     }
   },
   computed: {
 
     pages () {
       const pages = []
-      this.iconList.forEach((item, index) => {
+      this.list.forEach((item, index) => {
         const page = Math.floor((index / 8))
         if (!pages[page]) {
           pages[page] = []
@@ -103,8 +72,8 @@ export default {
        .icon-img-content
          display: block
          margin: 0 auto
-         width: 100%
-         height: 100%
+         width: 75%
+         height: 75%
 
      .icon-desc
        position: absolute

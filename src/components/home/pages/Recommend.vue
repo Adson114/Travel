@@ -2,7 +2,7 @@
   <div>
   <div class="title">热销推荐</div>
     <ul>
-      <li class="item border-bottom" v-for="item in recommendList" :key="item.id">
+      <li class="item border-bottom" v-for="item in list" :key="item.id">
           <img class="item-img" :src="item.imgUrl"/>
         <div class="item-info">
           <p class="item-title">
@@ -19,26 +19,10 @@
 <script>
 export default {
   name: 'HomeRecommend',
-  data () {
-    return {
-      recommendList: [{
-        id: '0001',
-        imgUrl: 'https://imgs.qunarzz.com/p/tts4/1809/9d/f8db3b5cb0007702.jpg_r_390x260x95_4d32fd2d.jpg',
-        title: '上海-名古屋 5天自由行',
-        desc: '赠一晚酒店💕上海🛫名古屋5-7日自由行🎁代办签证代办签证代办签证代办签证代办签证代办签证'
-      }, {
-        id: '0002',
-        imgUrl: 'https://imgs.qunarzz.com/p/tts4/1809/9d/f8db3b5cb0007702.jpg_r_390x260x95_4d32fd2d.jpg',
-        title: '上海-名古屋 5天自由行',
-        desc: '赠一晚酒店💕上海🛫名古屋5-7日自由行🎁代办签证代办签证代办签证代办签证代办签证代办签证'
-      }, {
-        id: '0003',
-        imgUrl: 'https://imgs.qunarzz.com/p/tts4/1809/9d/f8db3b5cb0007702.jpg_r_390x260x95_4d32fd2d.jpg',
-        title: '上海-名古屋 5天自由行',
-        desc: '赠一晚酒店💕上海🛫名古屋5-7日自由行🎁代办签证代办签证代办签证代办签证代办签证代办签证'
-      }]
-    }
+  props: {
+    list: Array
   }
+
 }
 </script>
 <style lang="stylus" scoped>
