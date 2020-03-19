@@ -50,7 +50,7 @@ export default {
   .header-right
     width :1.24rem
     float: right
-    color :blue
+    color :#fff
     text-align :center
       .arrow-icon
         font-size :.24rem
