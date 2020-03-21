@@ -1,26 +1,30 @@
 <template>
   <div>
   <div class="banner" @click="handleBannerClick">
-    <img class="banner-img" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1584778486517&di=e390c82ad06b8f4e58416b1b414ff1e9&imgtype=0&src=http%3A%2F%2Fmedia-cdn.tripadvisor.com%2Fmedia%2Fphoto-s%2F01%2F3e%2F05%2F40%2Fthe-sandbar-that-links.jpg"/>
+    <img class="banner-img" :src="bannerImg"/>
     <div class="banner-info">
-      <div class="banner-title">大连圣亚海洋世界（AAAA景区)</div>
+      <div class="banner-title">{{this.sightName}}</div>
       <div class="banner-number">
         <span class="iconfont banner-icon">&#xe63a;</span>39
       </div>
     </div>
   </div>
-    <common-gallary :imgs="imgs" v-show="showGallary" @close="handleGallaryClose"></common-gallary>
+    <common-gallary :imgs="bannerImgs" v-show="showGallary" @close="handleGallaryClose"></common-gallary>
   </div>
 </template>
 <script>
 import CommonGallary from 'common/gallary/Gallary'
 export default {
   name: 'DetailBanner',
+  props: {
+    sightName: String,
+    bannerImg: String,
+    bannerImgs: Array
+
+  },
   data () {
     return {
-      showGallary: false,
-      imgs: ['https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1584778486517&di=9faaaccd968bcb540d0ec960778cc56b&imgtype=0&src=http%3A%2F%2Fmedia-cdn.tripadvisor.com%2Fmedia%2Fphoto-s%2F03%2Ff8%2F81%2F70%2Ftup-island.jpg',
-        'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1343015815,2335192405&fm=26&gp=0.jpg']
+      showGallary: false
     }
   },
   components: {
