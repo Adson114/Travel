@@ -8,18 +8,19 @@
       输入城市/景点/游玩主题</div>
     <router-link to="/city">
     <div class="header-right">
-      {{this.city}}</div>
+      {{this.doubleCity}}</div>
     </router-link>
     <span class="iconfont arrow-icon" >&#xe64a;</span>
   </div>
 </template>
 
 <script>
-
+import {mapState, mapGetters} from 'vuex'
 export default {
   name: 'HomeHeader',
-  props: {
-    city: String
+  computed: {
+    ...mapState(['city']),
+    ...mapGetters(['doubleCity'])
   }
 }
 </script>
@@ -48,7 +49,8 @@ export default {
     border-radius :0.1rem
     color :#ccc
   .header-right
-    width :1.24rem
+    min-width :1.04rem
+    padding :0 .1rem
     float: right
     color :#fff
     text-align :center
